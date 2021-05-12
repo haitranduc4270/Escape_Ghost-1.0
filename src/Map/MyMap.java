@@ -399,11 +399,11 @@ public class MyMap {
 		}
 		
 		if(mainGame.allHunterDead() && mainGame.allDogDead()  && (this.getLocation() == 3) && 
-				(((mainGame.getGhost().getX()/BOX_SIZE  >=5)	&&	(mainGame.getGhost().getX()<=11))   && (mainGame.getGhost().getY()/BOX_SIZE <= 0) &&
-				((mainGame.getMonster().getX()/BOX_SIZE >=5) 	&&  (mainGame.getMonster().getX()<=11)) && (mainGame.getMonster().getY()/BOX_SIZE <= 0 ))
+				(((mainGame.getGhost().getX()/BOX_SIZE  >=5)	&&	(mainGame.getGhost().getX()/BOX_SIZE<=11))   && (mainGame.getGhost().getY()/BOX_SIZE <= 0) &&
+				((mainGame.getMonster().getX()/BOX_SIZE >=5) 	&&  (mainGame.getMonster().getX()/BOX_SIZE<=11)) && (mainGame.getMonster().getY()/BOX_SIZE <= 0 ))
 					) {
 				mainGame.getTimer().stop();
-				mainGame.getMyContainer().setShowEnd();
+				mainGame.getMyContainer().setShowEnd(); 
 		}
 		
 		
