@@ -51,7 +51,7 @@ public abstract class Actor {
 			if ((main.getMaps().getMap()[y/(main.getBOX_SIZE())][(x+this.getWidth())/(main.getBOX_SIZE())] >= 3 )||(main.getMaps().getMap()[(y+this.getHeight())/24][(x+this.getWidth())/(main.getBOX_SIZE())] >= 3)) { 
 				x-=dx;  
 				return; 
-			}   
+			}    
 		}
 		if (dx<0) { 
 			if((main.getMaps().getMap()[y/(main.getBOX_SIZE())][x/(main.getBOX_SIZE())] >= 3) || (main.getMaps().getMap()[(y+this.getHeight())/(main.getBOX_SIZE())][x/(main.getBOX_SIZE())] >=3)) {

@@ -1,11 +1,14 @@
 package GUI;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -17,7 +20,6 @@ import Map.MyMap;
 import Actor.Dog;
 import Actor.Ghost;
 
-
 @SuppressWarnings("serial")
 public class MainGame extends JPanel implements ActionListener{
 	private Container Container;
@@ -25,9 +27,11 @@ public class MainGame extends JPanel implements ActionListener{
 	private int mode;
 	
 	private Timer timer;
+	private boolean isPause;
 	private final int DELAY = 37; 
 	private final int BOX_SIZE = 24;  
 	private Status_Bar Bar;
+	private JLabel Plabel;
 	 
 	
 	private Monster Monster;
@@ -62,14 +66,21 @@ public class MainGame extends JPanel implements ActionListener{
 		
 		Manager = new Manager(this);
 			
-		MyAdapter adapter = new MyAdapter( Monster, Ghost); 
+		MyAdapter adapter = new MyAdapter( Monster, Ghost, this); 
 		addKeyListener(adapter);
 		timer = new Timer(DELAY, this); 
+		isPause = false;
 		
 		Bar = new Status_Bar(); 
 		Bar.setMainGame(this);
 		Bar.setBounds(0, 490, 720, 80);
 		this.add(Bar);
+		
+		Plabel = new JLabel("Press Space to play ");
+		Plabel.setBounds(100, 100, 600, 200);
+		this.add(Plabel);
+		Plabel.setVisible(false);
+		Plabel.setFont(new Font("Helvetica", Font.PLAIN, 50)); 
 	}
 	
 	 
@@ -99,6 +110,9 @@ public class MainGame extends JPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {	
+		
+		if(isPause) return;
+		
 		checkLose();
 		Maps.checkState();
 		checkMonsterAlive();
@@ -175,7 +189,7 @@ public class MainGame extends JPanel implements ActionListener{
 			if(Hunter.getHP()<=0) {
 				Hunter.Kill(); 
 				Hunter = null;
-			}
+			} 
 		}
 		return;
 	} 
@@ -218,9 +232,28 @@ public class MainGame extends JPanel implements ActionListener{
 		 if (Ghost.isDead() || Monster.isDead() ) {
 				timer.stop(); 
 				this.Container.setShowEnd();
-		 }
+		 } 
 	}
 	
+	
+	public void keyPressed(KeyEvent e) {
+		
+		int key = e.getKeyCode();
+		switch (key) {
+			case KeyEvent.VK_P:
+				if (!this.isPause) { 
+					this.isPause = true;	
+					Plabel.setVisible(true);
+				}
+				break;
+			case KeyEvent.VK_SPACE:
+				if(this.isPause) {
+					this.isPause = false;
+					Plabel.setVisible(false);
+				}
+				break;
+		}
+	}
 	
 	
 	public Monster getMonster() {
@@ -263,6 +296,8 @@ public class MainGame extends JPanel implements ActionListener{
 	public void setMode(int mode) {
 		this.mode = mode;
 	}
+
+
 
 
 	
