@@ -28,7 +28,7 @@ public class MainGame extends JPanel implements ActionListener{
 	
 	private Timer timer;
 	private boolean isPause;
-	private final int DELAY = 37; 
+	private final int DELAY = 40; 
 	private final int BOX_SIZE = 24;  
 	private Status_Bar Bar;
 	private JLabel Plabel;
@@ -68,7 +68,7 @@ public class MainGame extends JPanel implements ActionListener{
 			
 		MyAdapter adapter = new MyAdapter( Monster, Ghost, this); 
 		addKeyListener(adapter);
-		timer = new Timer(DELAY, this); 
+		timer = new Timer(DELAY, this);  
 		isPause = false;
 		
 		Bar = new Status_Bar(); 
@@ -92,7 +92,7 @@ public class MainGame extends JPanel implements ActionListener{
 		 this.Maps.drawHunter(g);
 		 this.Maps.drawDog(g);
 		 
-		 
+		  
 		 if(!Monster.isDead()) {
 			 g.drawImage(Monster.getImage(), Monster.getX(), Monster.getY(), this);
 		 }
@@ -105,12 +105,12 @@ public class MainGame extends JPanel implements ActionListener{
 		 g.setColor(Color.GREEN);
 		 g.fillRect(0, 480, 720, 3);
 		 
-		 
+		
 		}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {	
-		
+	//	 this.run();
 		if(isPause) return;
 		
 		checkLose();
@@ -143,9 +143,13 @@ public class MainGame extends JPanel implements ActionListener{
 			}
 		}
 		 
-		repaint(); 
+		repaint();
+		   
 	}
 	
+	public void myrun () {
+		
+	}
 	
 	
 	
@@ -296,6 +300,7 @@ public class MainGame extends JPanel implements ActionListener{
 	public void setMode(int mode) {
 		this.mode = mode;
 	}
+
 
 
 

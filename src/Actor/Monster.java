@@ -46,22 +46,29 @@ public class Monster extends ShortRange {
 		   image = image_r;
 		   break; 
 		  case KeyEvent.VK_B:
+			  if(this.MP < 10) break;
 			  if(main.getGhost().dead == false) {
-			  this.setX(this.main.getGhost().getX()-3);
-			  this.setY(this.main.getGhost().getY()-3);
+				  this.setX(this.main.getGhost().getX()-3);
+				  this.setY(this.main.getGhost().getY()-3);
+				  this.setMP(this.getMP() - 10);
 			  }
+			  break;
 		  case KeyEvent.VK_N:
+			  if(this.MP < 20) break;
 			  if((main.getGhost().getHP() < main.getGhost().getMax_HP()) && (main.getGhost().dead == false)) {
 				  if (main.getGhost().getHP() + this.getHeal() >= main.getGhost().getMax_HP() ) {
 					  this.setHP(this.getHP() - (main.getGhost().getMax_HP() - main.getGhost().getHP()));
 					  main.getGhost().setHP(main.getGhost().getMax_HP());
+					  this.setMP(this.getMP() - 20);
 					  break;
-				  }
+				  } 
 				  else {
 					  this.main.getGhost().setHP(this.main.getGhost().getHP()+this.heal);
 					  this.setHP(this.getHP() - this.heal);  
+					  this.setMP(this.getMP() - 20);
 					  break;
 				  }
+				  
 			  }
 			  break;
 		  }

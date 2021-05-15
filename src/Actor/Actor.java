@@ -44,12 +44,26 @@ public abstract class Actor {
 	public abstract void loadImage(); 
 	
 	public void move() {
-		if ( ((dx>0)&&(x>=713-this.getWidth())) || ((dx<0)&&(x<=0)) ) return;
-		else x += dx;  
+		
+		if(x>=710-this.getWidth()) {
+			x=710-this.getWidth();
+		}
+		if(x<=0) {
+			x = 0;
+		}
+		if (y >= 470-this.getHeight()) {
+			y = 470-this.getHeight();
+		}	
+		if(y <= 0) {
+			y = 0;  
+		}
+		
+		x += dx;   
+				
 		/* *****xetvacham****** */
 		if(dx>0) { 
 			if ((main.getMaps().getMap()[y/(main.getBOX_SIZE())][(x+this.getWidth())/(main.getBOX_SIZE())] >= 3 )||(main.getMaps().getMap()[(y+this.getHeight())/24][(x+this.getWidth())/(main.getBOX_SIZE())] >= 3)) { 
-				x-=dx;  
+				x-=dx;   
 				return; 
 			}    
 		}
@@ -59,11 +73,18 @@ public abstract class Actor {
 				return;  
 			}
 		} 
-		
-		/* ******xetvacham***** */
-		if ( ((dy>0)&&(y>=473-this.getHeight())) || ((dy<0)&&(y<=0)) ) return;
-		else y += dy;
 		 
+		if(x>=710-this.getWidth()) { 
+			x=710-this.getWidth();
+		}
+		if(x<=0) {
+			x = 0;
+		}
+			
+		/* ******xetvacham***** */ 
+
+		y += dy; 
+				 
 		/* *****xetVSmap******* */ 
 		if(dy>0) {
 			if ((main.getMaps().getMap()[(y+this.getHeight())/(main.getBOX_SIZE())][x/(main.getBOX_SIZE())] >= 3) || (main.getMaps().getMap()[(y+this.getHeight())/(main.getBOX_SIZE())][(x+this.getWidth())/(main.getBOX_SIZE())]) >= 3) {
@@ -80,7 +101,17 @@ public abstract class Actor {
 		}
 		
 		/* **********xetVSmap********** */
-	
+		
+		if (y >= 470-this.getHeight()) {
+			y = 470-this.getHeight();
+		}	
+		if(y <= 0) {
+			y = 0;  
+		}
+		
+		
+		
+		
 }
 	
 	
