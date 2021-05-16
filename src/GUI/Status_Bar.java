@@ -21,7 +21,7 @@ public class Status_Bar extends JPanel implements ActionListener{
 	private JLabel Monster_MP;
 	
 	private JButton btn_Menu;
-	private JButton btn_Pause;
+
 
 	public Status_Bar () {
 		super();
@@ -50,16 +50,7 @@ public class Status_Bar extends JPanel implements ActionListener{
 		btn_Menu.setIcon(iconM); 
 		add(btn_Menu); 
 		
-		/*
-		ImageIcon iconP = new ImageIcon("src\\image\\Button_Menu.png");
-		btn_Pause = new JButton();
-		btn_Pause.setBounds(400, 10, 150, 40);
-		btn_Pause.addActionListener(this);
-		btn_Pause.setContentAreaFilled(false);
-		btn_Pause.setBorder(null);
-		btn_Pause.setIcon(iconP); 
-		add(btn_Pause); 
-		*/
+	
 	}
 
 	public MainGame getMainGame() {

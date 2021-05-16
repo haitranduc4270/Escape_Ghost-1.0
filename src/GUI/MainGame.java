@@ -109,8 +109,7 @@ public class MainGame extends JPanel implements ActionListener{
 		}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {	
-	//	 this.run();
+	public void actionPerformed(ActionEvent e) {	 // su dung Timer de tao vong lap game 
 		if(isPause) return;
 		
 		checkLose();
@@ -145,10 +144,6 @@ public class MainGame extends JPanel implements ActionListener{
 		 
 		repaint();
 		   
-	}
-	
-	public void myrun () {
-		
 	}
 	
 	
