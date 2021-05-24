@@ -182,7 +182,9 @@ public class MainGame extends JPanel implements ActionListener{
 	public void checkHunterAlive () {
 		for(Hunter Hunter : Maps.getHunters()) {
 			if(this.Manager.IsHunterwasShooted(Hunter)) {
-				Hunter.setHP(Hunter.getHP()+ Hunter.getDefense() - Ghost.getAtk());
+				if(Ghost.getAtk() >= Hunter.getDefense()) {
+					Hunter.setHP(Hunter.getHP()+ Hunter.getDefense() - Ghost.getAtk());
+				}
 			} 
 			this.Manager.CheckMonsterBurnHunter(Hunter);
 			if(Hunter.getHP()<=0) {
@@ -196,7 +198,9 @@ public class MainGame extends JPanel implements ActionListener{
 	public void checkDogAlive () {
 		for(Dog Dog : Maps.getDogs()) {
 			if(this.Manager.IsDogwasShooted(Dog)) {
-				Dog.setHP(Dog.getHP()+ Dog.getDefense() - Ghost.getAtk());
+				if(Ghost.getAtk() >= Dog.getDefense()) {
+					Dog.setHP(Dog.getHP()+ Dog.getDefense() - Ghost.getAtk());
+				}
 			} 
 			
 			this.Manager.CheckMonsterBurnDog(Dog);

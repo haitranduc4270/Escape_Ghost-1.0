@@ -18,7 +18,7 @@ public class Monster extends ShortRange {
 		this.type = 1; // 1 monster 
 		this.speed = 3;
 		this.atk = 3;
-		this.defense = 100;
+		this.defense = 50;
 		this.heal = 100;
 		this.MP = 200; 
 	}

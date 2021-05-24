@@ -17,7 +17,7 @@ public class Hunter extends LongRange {
 		this.defaultSpeed = 5;
 		this.type = 3; // 3 hunter 
 		this.speed = defaultSpeed;
-		this.atk = 50;
+		this.atk = 100;
 		this.defense = 100;
 		this.MP = 1;
 		this.Max_MP = 4;

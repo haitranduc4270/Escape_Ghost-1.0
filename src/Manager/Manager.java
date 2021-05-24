@@ -84,8 +84,9 @@ public class Manager {
 							(Bullet.getY() >=  (MainGame.getMonster().getY() - Bullet.getHeight())) &&
 							(Bullet.getY() <=  (MainGame.getMonster().getY() + MainGame.getMonster().getHeight()))))
 						{	
-						
-						MainGame.getMonster().setHP(MainGame.getMonster().getHP() + MainGame.getMonster().getDefense() - Hunter.getAtk());
+						if(Hunter.getAtk() >= MainGame.getMonster().getDefense()) {
+							MainGame.getMonster().setHP(MainGame.getMonster().getHP() + MainGame.getMonster().getDefense() - Hunter.getAtk());
+						}
 						Hunter.getBullets().remove(Bullet);
 						Hunter.setMP(Hunter.getMP()+1);
 						return true; 
@@ -105,8 +106,9 @@ public class Manager {
 							(Bullet.getY() >=  (MainGame.getGhost().getY() - Bullet.getHeight())) &&
 							(Bullet.getY() <=  (MainGame.getGhost().getY() + MainGame.getGhost().getHeight()))))
 						{	
-						
-						MainGame.getGhost().setHP(MainGame.getGhost().getHP() + MainGame.getGhost().getDefense() - Hunter.getAtk());
+						if(Hunter.getAtk() >= MainGame.getGhost().getDefense()) {
+							MainGame.getGhost().setHP(MainGame.getGhost().getHP() + MainGame.getGhost().getDefense() - Hunter.getAtk());
+						}
 						Hunter.getBullets().remove(Bullet); 
 						Hunter.setMP(Hunter.getMP() + 1);
 						return true;
