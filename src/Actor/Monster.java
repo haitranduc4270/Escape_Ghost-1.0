@@ -9,6 +9,7 @@ import GUI.MainGame;
 public class Monster extends ShortRange {
 	protected int BurnRanger = 48;
 	protected int heal ;
+	int heal_CountDown;
 	 
 	public Monster(MainGame MainGame) {  
 		super(MainGame);
@@ -21,6 +22,10 @@ public class Monster extends ShortRange {
 		this.defense = 50;
 		this.heal = 100;
 		this.MP = 200; 
+		this.Max_MP  = 200;
+		this.Max_HP = 4000;
+		this.heal_CountDown = 200;
+		this.MP_recover = 1;
 	}
 	 
 	
@@ -30,7 +35,7 @@ public class Monster extends ShortRange {
 		  case KeyEvent.VK_W: 
 		   dy = -this.speed;
 		   this.setStatus(this.UP);
-		   break;
+		   break; 
 		  case KeyEvent.VK_S: 
 		   dy = this.speed;
 		   this.setStatus(this.DOWN);
@@ -124,6 +129,21 @@ public class Monster extends ShortRange {
 
 		public int getBurnRanger() {
 			return BurnRanger;
+		}
+
+
+		public int getHeal_CountDown() {
+			return heal_CountDown;
+		}
+
+
+		public void setHeal_CountDown(int heal_CountDown) {
+			this.heal_CountDown = heal_CountDown;
+		}
+
+
+		public void setBurnRanger(int burnRanger) {
+			BurnRanger = burnRanger;
 		}
 		  
 		

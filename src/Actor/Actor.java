@@ -34,11 +34,16 @@ public abstract class Actor {
 	protected int defaultSpeed, speed;
 	protected int defense;
 	protected int atk;
-
+	protected int MP_recover;
+	
 	protected MainGame main;
 	
+	protected long millis;
+	
 	public Actor(MainGame MainGame) {
-		 this.main = MainGame;
+		 this.main = MainGame;	 
+		 @SuppressWarnings("unused")
+		long millis=System.currentTimeMillis();  	
 	}
 	
 	public abstract void loadImage(); 
@@ -229,6 +234,22 @@ public abstract class Actor {
 		this.setDead(true);
 		x = 760;
 		y = 530;
+	}
+
+	public long getMillis() {
+		return millis;
+	}
+
+	public void setMillis(long millis) {
+		this.millis = millis;
+	}
+
+	public int getMP_recover() {
+		return MP_recover;
+	}
+
+	public void setMP_recover(int mP_recover) {
+		MP_recover = mP_recover;
 	}
     
     

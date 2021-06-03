@@ -3,12 +3,12 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <package id="1" language="java" name="Image" project="Escape-Ghost-main" file="/Escape-Ghost-main/src/Image" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="254" y="35"/>    
+    <position height="-1" width="-1" x="156" y="214"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <package id="2" language="java" name="Weapons" project="Escape-Ghost-main" file="/Escape-Ghost-main/src/Weapons" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="291" y="141"/>    
+    <position height="-1" width="-1" x="294" y="228"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <component id="3" language="java" name="src" project="Escape-Ghost-main" file="/Escape-Ghost-main/src" binary="false" 
@@ -23,7 +23,7 @@
   </package>  
   <package id="5" language="java" name="Manager" project="Escape-Ghost-main" file="/Escape-Ghost-main/src/Manager" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="711" y="44"/>    
+    <position height="-1" width="-1" x="841" y="229"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <package id="6" language="java" name="Map" project="Escape-Ghost-main" file="/Escape-Ghost-main/src/Map" 
@@ -33,7 +33,7 @@
   </package>  
   <package id="7" language="java" name="GUI" project="Escape-Ghost-main" file="/Escape-Ghost-main/src/GUI" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="660" y="134"/>    
+    <position height="-1" width="-1" x="714" y="223"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

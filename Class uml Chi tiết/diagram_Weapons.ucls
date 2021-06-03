@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="Weapons.Bullet" project="Escape-Ghost-main" 
     file="/Escape-Ghost-main/src/Weapons/Bullet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="459" width="182" x="86" y="-11"/>    
+    <position height="-1" width="-1" x="253" y="221"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

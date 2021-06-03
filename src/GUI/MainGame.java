@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+
 import java.util.ArrayList;
 
 import javax.swing.JLabel;
@@ -17,9 +18,9 @@ import Actor.Hunter;
 import Actor.MyAdapter;
 import Manager.Manager;
 import Map.MyMap;
+
 import Actor.Dog;
 import Actor.Ghost;
-
 @SuppressWarnings("serial")
 public class MainGame extends JPanel implements ActionListener{
 	private Container Container;
@@ -112,10 +113,11 @@ public class MainGame extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {	 // su dung Timer de tao vong lap game 
 		if(isPause) return;
 		
-		checkLose();
+		checkEnd();
 		Maps.checkState();
 		checkMonsterAlive();
 		checkGhostAlive();
+		
 		checkHunterAlive();
 		checkDogAlive();
 		
@@ -149,6 +151,15 @@ public class MainGame extends JPanel implements ActionListener{
 	
 	
 	public void checkMonsterAlive () {
+		if (((Monster.getMax_MP() -  Monster.getMP()) < Monster.getMP_recover()) && (Monster.getMP() < Monster.getMax_MP())) {
+			Monster.setMP(Monster.getMax_MP());
+		}
+		
+		if ((Monster.getMP() < Monster.getMax_MP()) && (System.currentTimeMillis() - Monster.getMillis() >= Monster.getHeal_CountDown()) ) {
+			Monster.setMillis(System.currentTimeMillis());
+			Monster.setMP(Monster.getMP() + Monster.getMP_recover());
+		}
+		
 		if(this.mode == 1) {
 			if (this.Manager.MonsterVSBullet()) {
 				if(Monster.getHP()<=0) {
@@ -159,6 +170,7 @@ public class MainGame extends JPanel implements ActionListener{
 		}
 		this.Manager.checkDogBiteChar();
 		if(this.Manager.HunterShoot_Monster()) {}  // da co chuyen ve void nhung ko dc   		
+		
 		if(Monster.getHP()<=0) { 
 			Monster.setDead(true);  
 			Monster.Kill();  
@@ -169,7 +181,9 @@ public class MainGame extends JPanel implements ActionListener{
 	   
 	public void checkGhostAlive () {
 		this.Manager.checkDogBiteChar();
+		
 		if(this.Manager.HunterShoot_Ghost()) {}  // da co chuyen ve void nhung ko dc   
+		
 		if(Ghost.getHP()<=0) {
 			Ghost.setDead(true); 
 			Ghost.Kill();
@@ -231,7 +245,7 @@ public class MainGame extends JPanel implements ActionListener{
 		return false;
 	}
 	
-	public void checkLose () {
+	public void checkEnd () {
 		 if (Ghost.isDead() || Monster.isDead() ) {
 				timer.stop(); 
 				this.Container.setShowEnd();
@@ -302,6 +316,7 @@ public class MainGame extends JPanel implements ActionListener{
 
 
 
+	
 
 
 	

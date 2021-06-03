@@ -1,25 +1,18 @@
 package Manager;
 
-import java.util.ArrayList;
-
 import Weapons.Bullet;
+import Actor.Actor;
 import Actor.Dog;
 import Actor.Hunter;
 import GUI.MainGame;
 
 
-
 public class Manager {
 	
 	private MainGame MainGame;
-	private ArrayList <Bullet> BulletC;
 	
-	 
 	public Manager (MainGame MainGame) {
 		this.MainGame = MainGame;
-	 	this.BulletC = MainGame.getGhost().getBullets();
-		 
-		
 	}
 	
 	public void checkDogBiteChar() {
@@ -40,7 +33,7 @@ public class Manager {
 			}
 		}
 		
-	}
+	} 
 	
 	public boolean CharVSMonster() {
 		if (  	(MainGame.getGhost().getX() >=  (MainGame.getMonster().getX() - MainGame.getGhost().getWidth())) &&
@@ -56,7 +49,7 @@ public class Manager {
 	
 	public boolean MonsterVSBullet () {  
 		
-		for (Bullet Bullet : BulletC) {	  
+		for (Bullet Bullet : MainGame.getGhost().getBullets() ) {	  
 			if ( 
 				(   (Bullet.getX() >=  (MainGame.getMonster().getX() - Bullet.getWidth())) &&
 					(Bullet.getX() <=  (MainGame.getMonster().getX() + MainGame.getMonster().getWidth())) &&
@@ -64,7 +57,7 @@ public class Manager {
 					(Bullet.getY() <=  (MainGame.getMonster().getY() + MainGame.getMonster().getHeight()))))
 				{	
 				MainGame.getMonster().setHP(MainGame.getMonster().getHP() + MainGame.getMonster().getDefense() - MainGame.getGhost().getAtk());
-				BulletC.remove(Bullet);
+				MainGame.getGhost().getBullets().remove(Bullet);
 				this.MainGame.getGhost().setMP(this.MainGame.getGhost().getMP() + 1);
 				return true;
 			}
@@ -117,6 +110,31 @@ public class Manager {
 			}return false;
 		}
 
+	
+	public boolean HunterShoot_Char (Actor Actor) {					
+		for (Hunter Hunter : MainGame.getMaps().getHunters()) {
+			
+			for(Bullet Bullet : Hunter.getBullets() ) {
+				if ( 
+						(   (Bullet.getX() >=  (Actor.getX() - Bullet.getWidth())) &&
+							(Bullet.getX() <=  (Actor.getX() + Actor.getWidth())) &&
+							(Bullet.getY() >=  (Actor.getY() - Bullet.getHeight())) &&
+							(Bullet.getY() <=  (Actor.getY() + Actor.getHeight()))))
+						{	
+						if(Hunter.getAtk() >= Actor.getDefense()) {
+							Actor.setHP(Actor.getHP() + Actor.getDefense() - Hunter.getAtk());
+						}
+						Hunter.getBullets().remove(Bullet);
+						Hunter.setMP(Hunter.getMP()+1);
+						return true; 
+					} 
+				} 
+			
+			} return false;
+
+	}
+
+	
 	public boolean IsHunterwasShooted (Hunter Hunter) {
 		
 			for (Bullet Bullet : this.MainGame.getGhost().getBullets()) {
@@ -185,6 +203,8 @@ public class Manager {
 			Dog.setSpeed(Dog.getDefaultSpeed());
 			return; 
 		} 
+		
+		
 		
 }
 

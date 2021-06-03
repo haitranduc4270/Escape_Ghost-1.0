@@ -33,7 +33,7 @@ public class MyMap {
 	}
 	
 	private ArrayList <Dog> Dogs0;
-	private int numberDog0;
+	private int numberDog0; 
 	private int numberHunter0;
 	private ArrayList <Hunter> Hunters0;
 	private int map0[][] =
