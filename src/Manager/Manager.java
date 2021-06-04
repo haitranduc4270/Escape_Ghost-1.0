@@ -41,9 +41,6 @@ public class Manager {
 				(MainGame.getGhost().getY() >=  (MainGame.getMonster().getY() - MainGame.getGhost().getHeight())) &&
 				(MainGame.getGhost().getY() <=  (MainGame.getMonster().getY() + MainGame.getMonster().getHeight()))
 				) return true;
-				 
-		
-		
 		return false;
 	}
 	
@@ -67,7 +64,7 @@ public class Manager {
 	}
 	
 	
-	public boolean HunterShoot_Monster () {
+	public void checkHunterShoot_Monster () {			// su dung trong luc phat trien he thong
 		for (Hunter Hunter : MainGame.getMaps().getHunters()) {
 			
 			for(Bullet Bullet : Hunter.getBullets() ) {
@@ -82,15 +79,15 @@ public class Manager {
 						}
 						Hunter.getBullets().remove(Bullet);
 						Hunter.setMP(Hunter.getMP()+1);
-						return true; 
+						return; 
 					} 
 				} 
 			
-			} return false;
+			} return;
 
 	}
 	
-	public boolean HunterShoot_Ghost () {
+	public void HunterShoot_Ghost () {		// su dung trong luc phat trien he thong
 		for (Hunter Hunter : MainGame.getMaps().getHunters()) {
 			for(Bullet Bullet : Hunter.getBullets() ) { 
 				if ( 
@@ -104,17 +101,17 @@ public class Manager {
 						}
 						Hunter.getBullets().remove(Bullet); 
 						Hunter.setMP(Hunter.getMP() + 1);
-						return true;
+						return ;
 					}
 				}
-			}return false;
+			}return;
 		}
 
 	
-	public boolean HunterShoot_Char (Actor Actor) {					
+	public <T extends Actor> void checkHunterShoot_Char (T Actor) {		// thay the cho 2 phuong thuc ok su dung checkhuntershooot monster va ghost			
 		for (Hunter Hunter : MainGame.getMaps().getHunters()) {
 			
-			for(Bullet Bullet : Hunter.getBullets() ) {
+			for(Bullet Bullet : Hunter.getBullets() ) { 
 				if ( 
 						(   (Bullet.getX() >=  (Actor.getX() - Bullet.getWidth())) &&
 							(Bullet.getX() <=  (Actor.getX() + Actor.getWidth())) &&
@@ -126,16 +123,16 @@ public class Manager {
 						}
 						Hunter.getBullets().remove(Bullet);
 						Hunter.setMP(Hunter.getMP()+1);
-						return true; 
+						return; 
 					} 
 				} 
 			
-			} return false;
+			} return;
 
 	}
 
 	
-	public boolean IsHunterwasShooted (Hunter Hunter) {
+	public boolean checkHunterwasShooted (Hunter Hunter) {
 		
 			for (Bullet Bullet : this.MainGame.getGhost().getBullets()) {
 				 

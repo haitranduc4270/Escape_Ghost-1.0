@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="Manager.Manager" project="Escape-Ghost-main" 
     file="/Escape-Ghost-main/src/Manager/Manager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="321" y="191"/>    
+    <position height="-1" width="-1" x="313" y="192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

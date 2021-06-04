@@ -169,7 +169,9 @@ public class MainGame extends JPanel implements ActionListener{
 			}
 		}
 		this.Manager.checkDogBiteChar();
-		if(this.Manager.HunterShoot_Monster()) {}  // da co chuyen ve void nhung ko dc   		
+		
+//		if(this.Manager.HunterShoot_Monster()) {}  // da co chuyen ve void nhung ko dc   		
+		this.Manager.checkHunterShoot_Char(Monster); // su dung ki tu dai dien
 		
 		if(Monster.getHP()<=0) { 
 			Monster.setDead(true);  
@@ -182,7 +184,8 @@ public class MainGame extends JPanel implements ActionListener{
 	public void checkGhostAlive () {
 		this.Manager.checkDogBiteChar();
 		
-		if(this.Manager.HunterShoot_Ghost()) {}  // da co chuyen ve void nhung ko dc   
+//		if(this.Manager.HunterShoot_Ghost()) {}  // da co chuyen ve void nhung ko dc   		
+		this.Manager.checkHunterShoot_Char(Ghost);	// su dung ki tu dai dien
 		
 		if(Ghost.getHP()<=0) {
 			Ghost.setDead(true); 
@@ -195,7 +198,7 @@ public class MainGame extends JPanel implements ActionListener{
 	
 	public void checkHunterAlive () {
 		for(Hunter Hunter : Maps.getHunters()) {
-			if(this.Manager.IsHunterwasShooted(Hunter)) {
+			if(this.Manager.checkHunterwasShooted(Hunter)) {
 				if(Ghost.getAtk() >= Hunter.getDefense()) {
 					Hunter.setHP(Hunter.getHP()+ Hunter.getDefense() - Ghost.getAtk());
 				}

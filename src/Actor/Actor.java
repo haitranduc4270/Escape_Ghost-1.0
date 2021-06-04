@@ -43,7 +43,7 @@ public abstract class Actor {
 	public Actor(MainGame MainGame) {
 		 this.main = MainGame;	 
 		 @SuppressWarnings("unused")
-		long millis=System.currentTimeMillis();  	
+		 long millis=System.currentTimeMillis();  	
 	}
 	
 	public abstract void loadImage(); 
