@@ -42,6 +42,5 @@ Người Chơi:
 -	Game thua khi 1 trong 2 người chơi chết 
 -	Nhấn P để tạm dừng game 
 -	Nhấn Space khi muốn tiếp tục
-
-![All](https://user-images.githubusercontent.com/82724036/122006488-15ae1d00-cde1-11eb-899b-1cf486ecef65.png)
+![All](https://user-images.githubusercontent.com/82724036/122006680-4ee68d00-cde1-11eb-9cd0-bfdf4c6dbf06.png)
   
