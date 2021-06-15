@@ -43,5 +43,5 @@ Người Chơi:
 -	Nhấn P để tạm dừng game 
 -	Nhấn Space khi muốn tiếp tục
 
-
+![All](https://user-images.githubusercontent.com/82724036/122006488-15ae1d00-cde1-11eb-899b-1cf486ecef65.png)
   
